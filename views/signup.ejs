@@ -10,22 +10,27 @@
 </head>
 
 <body>
+  <%= message.join(', ') %>
   <div class="container">
     <div class="row justify-content-center" >
       <div class="col-md-6 offset-md-3">
         <div >
-          <h2>SIGNUP de Usuario</h2>
-          <form class="row g-3" method="POST" >
+          <h2>Login de Usuario</h2>
+          <form class="row g-3" action="/signup" method="POST">
             <div class="col-auto">
-              <label for="name" class="visually-hidden"></label>
-              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese Nombre">
+              <label for="username" class="visually-hidden">Nombre de Usuario:</label>
+              <input type="text" class="form-control" id="nombre" name="username" placeholder="Ingrese Nombre">
             </div>
             <div class="col-auto">
-              <button type="submit" id="login" class="btn btn-primary mb-3">LOGIN</button>
+              <label for="username" class="visually-hidden">Email:</label>
+              <input type="email" class="form-control" id="nombre" name="email" placeholder="Ingrese Nombre">
             </div>
             <div class="col-auto">
-           
-              <button  id="signup" class="btn btn-primary mb-3">SIGNUP</button>
+              <label for="username" class="visually-hidden">Password:</label>
+              <input type="password" class="form-control" id="pass" name="password">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">Registrase</button>
             </div>
           </form>
         </div>
