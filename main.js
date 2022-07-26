@@ -19,7 +19,10 @@ app.use(flash())
 app.use(session({
   secret: 'qwerty',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 100000,
+  }
 }))
 
 app.use(passport.initialize())
