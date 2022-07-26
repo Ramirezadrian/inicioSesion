@@ -8,7 +8,7 @@ const flash = require('connect-flash')
 mongoose.connect('mongodb://localhost:27017/desafioSesion')
 const User = require('./models/user')
 
-const { creatHash, isValidPassword } = require('./utils')
+const { createHash, isValidPassword } = require('./utils')
 
 const app = express()
 app.use(express.static('./public'))
@@ -55,7 +55,7 @@ passport.use('signup', new LocalStrategy({
 
     const newUser = new User()
     newUser.username = username
-    newUser.password = creatHash(password)
+    newUser.password = createHash(password)
     newUser.email =req.body.email
 
     return newUser.save()
@@ -120,13 +120,16 @@ app.get('/', (req,res,next) => {
   return res.redirect('login')
 
 }, (req, res) => {
-  return res.render('home',{name:req.user}) //EJS
+  return res.render('home',{
+    name:req.user.username,
+    email:req.user.email
+  }) //EJS
 })
 app.get('/logout', (req, res) => {
     const name = req.session.user
     return req.session.destroy(err => {
         if (!err) {
-        return res.render('logout', {name:name}) //EJS
+        return res.render('logout', {name:req.user.username}) //EJS
         }
 
         return res.render({ error: err })

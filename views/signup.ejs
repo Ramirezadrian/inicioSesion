@@ -18,19 +18,22 @@
           <h2>Login de Usuario</h2>
           <form class="row g-3" action="/signup" method="POST">
             <div class="col-auto">
-              <label for="username" class="visually-hidden">Nombre de Usuario:</label>
-              <input type="text" class="form-control" id="nombre" name="username" placeholder="Ingrese Nombre">
+              <label for="username" >Nombre de Usuario:</label>
+              <input type="text" class="form-control" id="nombre" name="username">
             </div>
             <div class="col-auto">
-              <label for="username" class="visually-hidden">Email:</label>
-              <input type="email" class="form-control" id="nombre" name="email" placeholder="Ingrese Nombre">
+              <label for="username" >Email:</label>
+              <input type="email" class="form-control" id="nombre" name="email" >
             </div>
             <div class="col-auto">
-              <label for="username" class="visually-hidden">Password:</label>
+              <label for="username" >Password:</label>
               <input type="password" class="form-control" id="pass" name="password">
             </div>
             <div class="col-auto">
               <button type="submit" class="btn btn-primary mb-3">Registrase</button>
+            </div>
+            <div>
+              <a href="/login"><input type="button" class="btn btn-primary mb-3" value="LOGIN"></a>
             </div>
           </form>
         </div>
